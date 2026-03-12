@@ -32,7 +32,6 @@ function draw() {
       let d = dist(mouseX, mouseY, x, y);
       let grassHeight = map(d, 0, 300, 50, 10);
       let sway = sin(frameCount * 0.05 + x * 0.02) * 3;
-      let n = noise(x * 0.01, y * 0.01);
       let greenShade = map(d, 0, 200, 200, 50);
       fill(greenShade, 200, 80);
       noStroke();
