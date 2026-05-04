@@ -6,6 +6,7 @@ let frog;
 let wrongSound;
 let melody = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 let melodyIndex = 0;
+let score = 0;
 
 function preload() {
   noteFiles[0]  = loadSound("sounds/579217__hugekc__note1.mp3");
@@ -33,6 +34,12 @@ function setup() {
 function draw() {
   background(20, 60, 75);
   l.display();
+  fill(220, 255, 225);
+  noStroke();
+  textSize(24);
+  textStyle(BOLD);
+  textFont('Georgia');
+  text("Score: " + score, 60, 30);  // ← add this
   for (let i = pulses.length - 1; i >= 0; i--) {
     pulses[i].move();
     pulses[i].display();
@@ -84,6 +91,7 @@ class Letter {
 
   checkLetter() {
     if (key == this.letter || key == this.letter.toLowerCase()) {
+      score++;
       this.note.play();
       pulses.push(new Pulse(this.x, this.y));
       frog.jumpTo(this.x, this.y);
@@ -91,6 +99,7 @@ class Letter {
     } else {
       background(120, 30, 30);
       wrongSound.play();
+      score = 0
     }
   }
 
