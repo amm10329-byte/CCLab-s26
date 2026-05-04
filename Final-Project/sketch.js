@@ -155,20 +155,20 @@ if (this.isJumping) {
 let scaleX = 1 + squish * 0.25;
 let scaleY = 1 - squish * 0.18;
 
-let arcOffset;
+let arcOff;
 if (this.isJumping) {
-  arcOffset = -sin(this.jumpProgress * PI) * 40;
+  arcOff = -sin(this.jumpProgress * PI) * 40;
 } else {
-  arcOffset = 0;
+  arcOff = 0;
 }
 
     push();
-    translate(this.x, this.y + arcOffset);
+    translate(this.x, this.y + arcOff);
     scale(scaleX, scaleY);
 
     noStroke();
     fill(0, 0, 0, 40);
-    ellipse(0, this.size * 0.45 - arcOffset * 0.3, this.size * 1.1, this.size * 0.3);
+    ellipse(0, this.size * 0.45 - arcOff * 0.3, this.size * 1.1, this.size * 0.3);
 
     fill(60, 160, 70);
     ellipse(0, 0, this.size, this.size * 0.8);
