@@ -39,7 +39,7 @@ function draw() {
   textSize(24);
   textStyle(BOLD);
   textFont('Georgia');
-  text("Score: " + score, 60, 30);  // ← add this
+  text("Score: " + score, 60, 30);  
   for (let i = pulses.length - 1; i >= 0; i--) {
     pulses[i].move();
     pulses[i].display();
@@ -156,11 +156,11 @@ let scaleX = 1 + squish * 0.25;
 let scaleY = 1 - squish * 0.18;
 
 let arcOff;
-if (this.isJumping) {
-  arcOff = -sin(this.jumpProgress * PI) * 40;
+  if (this.isJumping) {
+    arcOff = -sin(this.jumpProgress * PI) * 40;
 } else {
-  arcOff = 0;
-}
+    arcOff = 0;
+} 
 
     push();
     translate(this.x, this.y + arcOff);
